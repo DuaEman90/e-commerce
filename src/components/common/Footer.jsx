@@ -69,7 +69,7 @@ const Footer = () => {
                 className="group w-7 h-7 border border-[#383734] flex items-center justify-center hover:border-[#C9A45C] hover:bg-[#C9A45C] transition-all duration-300"
               >
                 <img
-                  src="/images/instagram.png"
+                  src="instagram.png"
                   alt="Instagram"
                   className="w-3 h-3 object-contain group-hover:scale-110 transition-transform duration-300"
                 />
@@ -81,7 +81,7 @@ const Footer = () => {
                 className="group w-7 h-7 border border-[#383734] flex items-center justify-center hover:border-[#C9A45C] hover:bg-[#C9A45C] transition-all duration-300"
               >
                 <img
-                  src="/images/facebook.png"
+                  src="facebook.png"
                   alt="Facebook"
                   className="w-3 h-3 object-contain group-hover:scale-110 transition-transform duration-300"
                 />
@@ -93,7 +93,7 @@ const Footer = () => {
                 className="group w-7 h-7 border border-[#383734] flex items-center justify-center hover:border-[#C9A45C] hover:bg-[#C9A45C] transition-all duration-300"
               >
                 <img
-                  src="/images/twitter.png"
+                  src="twiter.png"
                   alt="Twitter"
                   className="w-3 h-3 object-contain group-hover:scale-110 transition-transform duration-300"
                 />
