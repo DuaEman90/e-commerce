@@ -64,7 +64,7 @@ const Navbar = () => {
             {/* Search */}
             <button
               aria-label="Search"
-              className="hidden sm:flex w-10 h-10 items-center justify-center rounded-full text-[#393631] transition-all duration-300 hover:bg-[#EFE9DF] hover:text-[#B58B45] hover:-translate-y-0.5"
+              className="hidden sm:flex w-10 h-10 items-center cursor-pointer justify-center rounded-full text-[#393631] transition-all duration-300 hover:bg-[#EFE9DF] hover:text-[#B58B45] hover:-translate-y-0.5"
             >
               <Search size={18} strokeWidth={1.5} />
             </button>
