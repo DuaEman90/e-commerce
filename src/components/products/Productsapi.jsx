@@ -139,4 +139,4 @@ const ProductApis = () => {
   );
 };
 
-export default ProductApi;
+export default ProductsApi;
