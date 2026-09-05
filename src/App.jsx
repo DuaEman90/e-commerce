@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import ProductDetail from "./components/products/ProductDetail";
+
 const App = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
           <Route path="product" element={<Product />} />
           <Route path="product/:id" element={<ProductDetail />} />
+          
         </Route>
       </Routes>
     </div>

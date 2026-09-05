@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 
-const ProductApis = () => {
+const ProductsApi = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -11,7 +11,9 @@ const ProductApis = () => {
       setLoading(true);
       setError("");
 
-      const response = await fetch("https://dummyjson.com/products");
+      const response = await fetch(
+        "https://dummyjson.com/products"
+      );
 
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -22,7 +24,10 @@ const ProductApis = () => {
       setProducts(data.products);
     } catch (error) {
       console.error("Error fetching products:", error);
-      setError("Something went wrong while loading products.");
+
+      setError(
+        "Something went wrong while loading products."
+      );
     } finally {
       setLoading(false);
     }
@@ -33,96 +38,144 @@ const ProductApis = () => {
   }, []);
 
   return (
-    <section className="bg-[#FAF9F6] py-20 px-5 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#FAF9F6] px-5 py-20 md:px-8">
+      <div className="mx-auto max-w-7xl">
 
         {/* ================= HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
 
-          <p className="text-[#B58B45] uppercase tracking-[4px] text-[11px] font-semibold">
+          <p className="text-[11px] font-semibold uppercase tracking-[4px] text-[#B58B45]">
             VELORA COLLECTION
           </p>
 
-          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#171717]">
+          <h1 className="mt-4 text-4xl font-light tracking-tight text-[#171717] md:text-5xl lg:text-6xl">
             Curated for
-            <span className="italic font-serif text-[#B58B45]">
+            <span className="font-serif italic text-[#B58B45]">
               {" "}your lifestyle
             </span>
           </h1>
 
-          <p className="mt-5 text-sm md:text-base leading-7 text-[#77736D] max-w-2xl mx-auto">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#77736D] md:text-base">
             Discover thoughtfully selected pieces designed to bring
             elegance, quality and effortless style into your everyday life.
           </p>
 
-          {/* Small decorative line */}
-          <div className="flex items-center justify-center gap-3 mt-7">
-            <span className="w-12 h-[1px] bg-[#D8C7A9]" />
-            <span className="w-1.5 h-1.5 rounded-full bg-[#B58B45]" />
-            <span className="w-12 h-[1px] bg-[#D8C7A9]" />
-          </div>
+          {/* Decorative Line */}
+          <div className="mt-7 flex items-center justify-center gap-3">
+            <span className="h-[1px] w-12 bg-[#D8C7A9]" />
 
+            <span className="h-1.5 w-1.5 rounded-full bg-[#B58B45]" />
+
+            <span className="h-[1px] w-12 bg-[#D8C7A9]" />
+          </div>
         </div>
 
         {/* ================= LOADING ================= */}
         {loading && (
-          <div className="min-h-[450px] flex items-center justify-center">
+          <div className="flex min-h-[55vh] items-center justify-center">
 
-            <div className="w-full max-w-sm bg-white border border-[#E8E2D9] p-8 text-center shadow-[0_10px_35px_rgba(181,139,69,0.08)]">
+            <div className="w-full max-w-md rounded-2xl border border-[#E8E1D7] bg-white px-8 py-10 text-center shadow-[0_20px_60px_rgba(23,23,23,0.05)]">
 
-              {/* Loader */}
-              <div className="flex justify-center mb-6">
-                <div className="w-12 h-12 border-2 border-[#E8E2D9] border-t-[#B58B45] rounded-full animate-spin" />
+              {/* Velora Logo Mark */}
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#D8C7A9]">
+
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF9F6]">
+
+                  <span className="font-serif text-lg italic text-[#B58B45]">
+                    V
+                  </span>
+
+                </div>
               </div>
 
-              <p className="text-[#B58B45] uppercase tracking-[3px] text-[10px] font-semibold">
-                VELORA COLLECTION
+              {/* Brand */}
+              <p className="mt-6 text-[10px] font-semibold uppercase tracking-[4px] text-[#B58B45]">
+                VELORA
               </p>
 
-              <h2 className="mt-3 text-xl font-light text-[#171717]">
-                Curating your
-                <span className="italic font-serif text-[#B58B45]">
-                  {" "}collection
+              {/* Heading */}
+              <h2 className="mt-3 text-2xl font-light tracking-tight text-[#171717]">
+                Preparing something
+
+                <span className="block font-serif italic text-[#B58B45]">
+                  beautiful for you
                 </span>
               </h2>
 
-              <p className="mt-3 text-xs leading-6 text-[#88837B]">
-                Please wait while we bring you our thoughtfully selected pieces.
+              {/* Description */}
+              <p className="mx-auto mt-4 max-w-xs text-xs leading-6 text-[#88837B]">
+                We're carefully bringing together our collection.
+                Just a moment.
               </p>
 
-              {/* Decorative Line */}
-              <div className="flex items-center justify-center gap-3 mt-6">
-                <span className="w-10 h-[1px] bg-[#D8C7A9]" />
-                <span className="w-1.5 h-1.5 rounded-full bg-[#B58B45]" />
-                <span className="w-10 h-[1px] bg-[#D8C7A9]" />
+              {/* Elegant Loader */}
+              <div className="mx-auto mt-7 flex items-center justify-center gap-2">
+
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#D8C7A9]" />
+
+                <span
+                  className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#B58B45]"
+                  style={{
+                    animationDelay: "150ms",
+                  }}
+                />
+
+                <span
+                  className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#D8C7A9]"
+                  style={{
+                    animationDelay: "300ms",
+                  }}
+                />
+
+              </div>
+
+              {/* Bottom Decorative Line */}
+              <div className="mx-auto mt-8 flex items-center justify-center gap-3">
+
+                <span className="h-px w-12 bg-[#E5DED4]" />
+
+                <span className="h-1 w-1 rounded-full bg-[#B58B45]" />
+
+                <span className="h-px w-12 bg-[#E5DED4]" />
+
               </div>
 
             </div>
-
           </div>
         )}
 
         {/* ================= ERROR ================= */}
         {!loading && error && (
-          <div className="text-center py-20">
+          <div className="flex min-h-[45vh] items-center justify-center">
 
-            <p className="text-[#171717] text-lg font-medium">
-              {error}
-            </p>
+            <div className="w-full max-w-md rounded-2xl border border-[#E5DED4] bg-white px-6 py-10 text-center">
 
-            <button
-              onClick={handleProducts}
-              className="mt-5 bg-[#171717] text-white px-6 py-3 text-sm transition-all duration-300 hover:bg-[#B58B45] hover:-translate-y-0.5"
-            >
-              Try Again
-            </button>
+              <p className="text-xs font-semibold uppercase tracking-[3px] text-[#B58B45]">
+                Velora Collection
+              </p>
 
+              <h2 className="mt-3 text-2xl font-light text-[#171717]">
+                Something went wrong
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-[#77736D]">
+                {error}
+              </p>
+
+              <button
+                onClick={handleProducts}
+                className="mt-6 rounded-xl bg-[#171717] px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B58B45]"
+              >
+                Try Again
+              </button>
+
+            </div>
           </div>
         )}
 
         {/* ================= PRODUCTS ================= */}
         {!loading && !error && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
 
             {products.map((product) => (
               <Cards
