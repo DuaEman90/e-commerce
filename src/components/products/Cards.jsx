@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Cards = ({ product }) => {
   return (
@@ -36,14 +37,12 @@ const Cards = ({ product }) => {
 
         {/* Quick View */}
         <div className="absolute bottom-4 left-4 right-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-
           <button
             onClick={(e) => e.stopPropagation()}
             className="w-full bg-white/95 backdrop-blur-sm text-[#171717] py-3 text-[11px] uppercase tracking-[2px] font-medium transition-all duration-300 hover:bg-[#B58B45] hover:text-white"
           >
             Quick View
           </button>
-
         </div>
 
       </div>
@@ -68,15 +67,12 @@ const Cards = ({ product }) => {
 
         {/* Rating */}
         <div className="flex items-center gap-2 mt-4">
-
           <div className="flex items-center gap-0.5 text-[#C9A45C] text-sm">
             ★★★★★
           </div>
-
           <span className="text-xs text-[#77736D]">
             {product.rating}
           </span>
-
         </div>
 
         {/* Divider */}
@@ -89,22 +85,21 @@ const Cards = ({ product }) => {
             <p className="text-[9px] uppercase tracking-[1.5px] text-[#AAA59D]">
               Price
             </p>
-
             <p className="text-xl font-semibold text-[#171717] mt-0.5">
               ${product.price}
             </p>
           </div>
 
-          <button
-            onClick={(e) => e.stopPropagation()}
+          {/* View Detail — Link to /product/:id */}
+          <Link
+            to={`/product/${product.id}`}
             className="group/btn flex items-center gap-2 bg-[#171717] text-white px-4 py-2.5 text-[11px] uppercase tracking-[1px] transition-all duration-300 hover:bg-[#B58B45] hover:-translate-y-0.5"
           >
             View Detail
-
             <span className="transition-transform duration-300 group-hover/btn:translate-x-0.5">
               →
             </span>
-          </button>
+          </Link>
 
         </div>
 
