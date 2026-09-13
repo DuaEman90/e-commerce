@@ -3,7 +3,7 @@ import React from "react";
 import { FiArrowUpRight, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-const HERO_IMG = "/images/about-hero.jpg";
+const HERO_IMG = "/hero.png";
 
 const categories = [
   "Beauty",

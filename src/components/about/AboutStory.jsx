@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const STORY_IMG = "/images/about-story.jpg";
+const STORY_IMG = "/story.jpeg";
 
 /* =========================================================
    FADE IN HOOK
