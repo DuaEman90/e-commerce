@@ -3,7 +3,7 @@ import React from "react";
 
 import ContactForm from "../components/contact/ContactForm";
 import ContactInfo from "../components/contact/ContactInfo";
-import FAQ from "../components/contact/FAQ";
+
 
 const Contact = () => {
   return (
@@ -38,7 +38,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <FAQ />
+   
     </main>
   );
 };

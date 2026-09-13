@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
@@ -21,52 +20,69 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-[#171717] text-[#E7D4B0] text-[11px] tracking-[2px] uppercase text-center py-2.5">
+      {/* Announcement Bar */}
+      <div className="bg-[#171717] py-2.5 text-center text-[11px] uppercase tracking-[2px] text-[#E7C77B]">
         Global Brands · One Destination
       </div>
 
-      <nav className="sticky top-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-[#E7E0D5]">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-[86px] flex items-center justify-between">
-          <NavLink to="/" className="group flex items-center shrink-0">
+      {/* Navbar */}
+      <nav className="sticky top-0 z-50 border-b border-[#E7E0D5] bg-white">
+        <div className="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between px-6 lg:px-10">
+
+          {/* Logo */}
+          <NavLink
+            to="/"
+            className="group flex shrink-0 cursor-pointer items-center"
+          >
             <img
-              src="/logo.jpeg"
+              src="/logoo.jpeg"
               alt="VELORA"
-              className="h-12 w-auto object-contain transition-all duration-500 group-hover:scale-[1.04] group-hover:-translate-y-0.5"
+              className="h-16 w-auto max-w-[260px] cursor-pointer object-contain object-left transition-all duration-500 group-hover:-translate-y-0.5 group-hover:scale-[1.04]"
             />
           </NavLink>
 
-          <div className="hidden lg:flex items-center gap-10 ml-10">
+          {/* Desktop Navigation */}
+          <div className="ml-10 hidden items-center gap-10 lg:flex">
             {navItems.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.path}
                 className={({ isActive }) =>
-                  `group relative py-2 text-[13px] uppercase tracking-[1.8px] transition-all duration-300 ${
+                  `group relative cursor-pointer py-2 text-[13px] font-semibold uppercase tracking-[1.8px] transition-all duration-300 ${
                     isActive
-                      ? "text-[#B58B45]"
-                      : "text-[#393631] hover:text-[#B58B45]"
+                      ? "text-[#C7A550]"
+                      : "text-[#393631] hover:text-[#C7A550]"
                   }`
                 }
               >
                 {item.name}
 
-                <span className="absolute left-0 bottom-0 h-[1px] w-0 bg-[#B58B45] transition-all duration-300 group-hover:w-full" />
+                {/* Gold Underline */}
+                <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#C7A550] shadow-[0_0_8px_rgba(199,165,80,0.35)] transition-all duration-300 group-hover:w-full" />
               </NavLink>
             ))}
           </div>
 
+          {/* Right Actions */}
           <div className="flex items-center gap-2 md:gap-3">
+
+            {/* Search */}
             <button
+              type="button"
               aria-label="Search"
-              className="hidden sm:flex w-10 h-10 items-center justify-center rounded-full text-[#393631] transition-all duration-300 hover:bg-[#EFE9DF] hover:text-[#B58B45] hover:-translate-y-0.5"
+              className="group hidden h-10 w-10 cursor-pointer items-center justify-center rounded-full text-[#393631] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F4F0E8] hover:text-[#C7A550] hover:shadow-[0_8px_20px_rgba(199,165,80,0.12)] sm:flex"
             >
-              <FiSearch size={18} />
+              <FiSearch
+                size={18}
+                className="transition-transform duration-300 group-hover:scale-110"
+              />
             </button>
 
+            {/* Shopping Bag */}
             <NavLink
               to="/product"
               aria-label="Shopping Bag"
-              className="group flex items-center justify-center w-10 h-10 rounded-full text-[#393631] transition-all duration-300 hover:bg-[#EFE9DF] hover:text-[#B58B45] hover:-translate-y-0.5"
+              className="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-[#393631] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F4F0E8] hover:text-[#C7A550] hover:shadow-[0_8px_20px_rgba(199,165,80,0.12)]"
             >
               <FiShoppingBag
                 size={18}
@@ -74,67 +90,82 @@ const Navbar = () => {
               />
             </NavLink>
 
+            {/* Shop Now */}
             <NavLink
               to="/product"
-              className="hidden md:flex group ml-2 items-center gap-2 bg-[#171717] text-white px-6 py-3 rounded-none text-[12px] uppercase tracking-[1.5px] transition-all duration-300 hover:bg-[#B58B45] hover:-translate-y-0.5"
+              className="group ml-2 hidden cursor-pointer items-center gap-2 rounded-none bg-[#171717] px-6 py-3 text-[12px] font-semibold uppercase tracking-[1.5px] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C7A550] hover:text-[#171717] hover:shadow-[0_10px_25px_rgba(199,165,80,0.22)] md:flex"
             >
               Shop Now
 
               <FiArrowUpRight
                 size={15}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </NavLink>
 
+            {/* Mobile Menu */}
             <button
+              type="button"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
-              className="lg:hidden ml-1 w-10 h-10 flex items-center justify-center border border-[#DCD4C7] text-[#25231F] transition-all duration-300 hover:border-[#B58B45] hover:text-[#B58B45]"
+              className="ml-1 flex h-10 w-10 cursor-pointer items-center justify-center border border-[#DCD4C7] text-[#25231F] transition-all duration-300 hover:border-[#C7A550] hover:bg-[#F4F0E8] hover:text-[#C7A550] hover:shadow-[0_8px_20px_rgba(199,165,80,0.12)] lg:hidden"
             >
               {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
             </button>
           </div>
         </div>
 
+        {/* Mobile Menu */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-500 ${
-            menuOpen ? "max-h-[450px] opacity-100" : "max-h-0 opacity-0"
+          className={`overflow-hidden transition-all duration-500 lg:hidden ${
+            menuOpen
+              ? "max-h-[450px] opacity-100"
+              : "max-h-0 opacity-0"
           }`}
         >
-          <div className="border-t border-[#E7E0D5] bg-[#FAF9F6] px-6 py-7">
+          <div className="border-t border-[#E7E0D5] bg-white px-6 py-7">
             <div className="flex flex-col">
+
               {navItems.map((item, index) => (
                 <NavLink
                   key={item.name}
                   to={item.path}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `flex items-center justify-between py-4 border-b border-[#E7E0D5] text-[13px] uppercase tracking-[1.8px] transition-all duration-300 hover:pl-2 ${
+                    `group flex cursor-pointer items-center justify-between border-b border-[#E7E0D5] py-4 text-[13px] font-semibold uppercase tracking-[1.8px] transition-all duration-300 hover:pl-2 ${
                       isActive
-                        ? "text-[#B58B45]"
-                        : "text-[#393631] hover:text-[#B58B45]"
+                        ? "text-[#C7A550]"
+                        : "text-[#393631] hover:text-[#C7A550]"
                     }`
                   }
                 >
                   <span>
-                    <span className="text-[10px] text-[#B58B45] mr-4">
+                    <span className="mr-4 text-[10px] font-semibold text-[#C7A550]">
                       0{index + 1}
                     </span>
 
                     {item.name}
                   </span>
 
-                  <FiArrowUpRight size={15} />
+                  <FiArrowUpRight
+                    size={15}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
                 </NavLink>
               ))}
 
+              {/* Mobile CTA */}
               <NavLink
                 to="/product"
                 onClick={() => setMenuOpen(false)}
-                className="mt-6 flex items-center justify-center gap-2 bg-[#171717] text-white py-3.5 text-[12px] uppercase tracking-[1.5px] transition-all duration-300 hover:bg-[#B58B45]"
+                className="group mt-6 flex cursor-pointer items-center justify-center gap-2 bg-[#171717] py-3.5 text-[12px] font-semibold uppercase tracking-[1.5px] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C7A550] hover:text-[#171717] hover:shadow-[0_12px_30px_rgba(199,165,80,0.2)]"
               >
                 Explore Products
-                <FiArrowUpRight size={15} />
+
+                <FiArrowUpRight
+                  size={15}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
               </NavLink>
             </div>
           </div>
@@ -145,4 +176,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
